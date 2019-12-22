@@ -13,24 +13,24 @@
 using namespace std;
 
 
-typedef struct Node    /*½áµãÀàĞÍ¶¨Òå*/
+typedef struct Node    /*ç»“ç‚¹ç±»å‹å®šä¹‰*/
 {
-	int num;//±àºÅ
-	int x;//Ô²ĞÄµÄx×ø±ê
-	int y;//Ô²ĞÄµÄy×ø±ê
-	int r;//µ±Ç°Ô²µÄ°ë¾¶´óĞ¡
+	int num;//ç¼–å·
+	int x;//åœ†å¿ƒçš„xåæ ‡
+	int y;//åœ†å¿ƒçš„yåæ ‡
+	int r;//å½“å‰åœ†çš„åŠå¾„å¤§å°
 	Node* next;
-}Node, * link;  /* LinkListÎª½á¹¹Ö¸ÕëÀàĞÍ*/
+}Node, * link;  /* LinkListä¸ºç»“æ„æŒ‡é’ˆç±»å‹*/
 
 Node* initLink(int n)
 {
-	Node* head = new Node;//¶¨ÒåÊ×Ôª½Úµã
+	Node* head = new Node;//å®šä¹‰é¦–å…ƒèŠ‚ç‚¹
 	head->num = 1;
 	head->next = NULL;
-	head->x = 280;//µÚÒ»¸öµãµÄºá×ø±êºãÎª280
-	head->y = 0;//µÚÒ»¸öµãµÄ×İ×ø±êºãÎª0
+	head->x = 280;//ç¬¬ä¸€ä¸ªç‚¹çš„æ¨ªåæ ‡æ’ä¸º280
+	head->y = 0;//ç¬¬ä¸€ä¸ªç‚¹çš„çºµåæ ‡æ’ä¸º0
 	Node* temp = head;
-	for (int i = 1; i <= n; i++) //¶¨ÒåºóÃæn-1¸ö½Úµã
+	for (int i = 1; i <= n; i++) //å®šä¹‰åé¢n-1ä¸ªèŠ‚ç‚¹
 	{
 		Node* body = new Node;
 		body->num = i;
@@ -40,7 +40,7 @@ Node* initLink(int n)
 		temp->next = body;
 		temp = temp->next;
 	}
-	temp->next = head;//Ê×Î²ÏàÁ¬
+	temp->next = head;//é¦–å°¾ç›¸è¿
 	return head;
 }
 
@@ -51,7 +51,7 @@ void nchoose_circle(Node* choose)
 	Sleep(400);
 	setfillcolor(BLUE);
 	fillcircle(choose->x, choose->y, R2);
-}//Ñ¡Ôñ¹ı³Ì¶¯»­£¬ĞèÒªÌí¼Óµ½FindAndDelete
+}//é€‰æ‹©è¿‡ç¨‹åŠ¨ç”»ï¼Œéœ€è¦æ·»åŠ åˆ°FindAndDelete
 
 void circle_narror(Node* choose)
 {
@@ -73,9 +73,9 @@ void circle_narror(Node* choose)
 		clearcircle(0, 0, pow(0.8, i) * R1 + 1);
 	}
 
-}//±»Ñ¡ÖĞµÄÏûÊ§¶¯»­£¬ĞèÒªÌí¼Óµ½FindAndDelete¡£±»Ñ¡ÖĞµÄĞ§¹ûÊÇÉÁË¸Á½ÏÂ£¬È»ºóÍ»³öµ½ÖĞ¼äÎ»ÖÃºóËõĞ¡µ½ÎŞ£¬
+}//è¢«é€‰ä¸­çš„æ¶ˆå¤±åŠ¨ç”»ï¼Œéœ€è¦æ·»åŠ åˆ°FindAndDeleteã€‚è¢«é€‰ä¸­çš„æ•ˆæœæ˜¯é—ªçƒä¸¤ä¸‹ï¼Œç„¶åçªå‡ºåˆ°ä¸­é—´ä½ç½®åç¼©å°åˆ°æ— ï¼Œ
 
-void init_circle(Node* head, int n)//ÊäÈë×ÜÊıºó£¬»­³öÄÇÒ»È¦Ô²
+void init_circle(Node* head, int n)//è¾“å…¥æ€»æ•°åï¼Œç”»å‡ºé‚£ä¸€åœˆåœ†
 {
 	Node* temp = head;
 	BeginBatchDraw();
@@ -93,35 +93,35 @@ void FindAndDelete(Node* head, int n, int num)
 {
 	Node* temp = head;
 	while (temp->next != head)
-	{//¶¨Î»µ½Ê×Ôª½ÚµãÇ°Ò»½Úµã
+	{//å®šä½åˆ°é¦–å…ƒèŠ‚ç‚¹å‰ä¸€èŠ‚ç‚¹
 		temp = temp->next;
 	}
 	head = initLink(n);
 	Node* temp2 = head;
 	while (temp2->num != n)
-	{//¶¨Ò»¸öÖ¸ÕëÖ¸ÏòÆğÊ¼½Úµã£¬Ò»¸ö¶¨Î»µ½ÆğÊ¼½ÚµãÇ°Ò»½Úµã£¬ÎªÉ¾³ı½Úµã×¼±¸
+	{//å®šä¸€ä¸ªæŒ‡é’ˆæŒ‡å‘èµ·å§‹èŠ‚ç‚¹ï¼Œä¸€ä¸ªå®šä½åˆ°èµ·å§‹èŠ‚ç‚¹å‰ä¸€èŠ‚ç‚¹ï¼Œä¸ºåˆ é™¤èŠ‚ç‚¹å‡†å¤‡
 		temp = temp2;
 		temp2 = temp2->next;
 	}
 	while (temp2->next != temp2)
-	{//µ±Ò»¸öÑ­»·Á´±íµÄ½Úµã->nextÖ¸Ïò×ÔÉí£¬ËµÃ÷Ö»Ê£Ò»¸ö½Úµã
+	{//å½“ä¸€ä¸ªå¾ªç¯é“¾è¡¨çš„èŠ‚ç‚¹->nextæŒ‡å‘è‡ªèº«ï¼Œè¯´æ˜åªå‰©ä¸€ä¸ªèŠ‚ç‚¹
 		for (int i = 1; i < num; ++i)
-		{//Ò»¸ö½Úµã¶¨Î»µ½Êıµ½numµÄ½Úµã£¬Ò»¸ö¶¨Î»µ½Ç°Ò»½Úµã
+		{//ä¸€ä¸ªèŠ‚ç‚¹å®šä½åˆ°æ•°åˆ°numçš„èŠ‚ç‚¹ï¼Œä¸€ä¸ªå®šä½åˆ°å‰ä¸€èŠ‚ç‚¹
 			temp = temp2;
 			temp2 = temp->next;
 			nchoose_circle(temp2);
 		}
 
 		circle_narror(temp2);
-		temp->next = temp2->next;//É¾³ınum½Úµã
+		temp->next = temp2->next;//åˆ é™¤numèŠ‚ç‚¹
 		delete temp2;
-		temp2 = temp->next;//´ÓÏÂÒ»½Úµã¼ÌĞø¿ªÊ¼
+		temp2 = temp->next;//ä»ä¸‹ä¸€èŠ‚ç‚¹ç»§ç»­å¼€å§‹
 	}
 	
 	char fin_num = (char)('0' + temp2->num);
 	getchar();
 	delete temp2;
-	outtextxy(0, 0, "×îºóÏûÊ§µÄÊÇ"+fin_num);
+	outtextxy(0, 0, fin_num);
 }
 
 void init_num(int n)
@@ -142,15 +142,15 @@ void init_num(int n)
 int main()
 {
 	int n, m;
-	cout << "ÇëÊäÈë×ÜÈËÊınºÍ±¨µÀÊım ";
+	cout << "è¯·è¾“å…¥æ€»äººæ•°nå’ŒæŠ¥é“æ•°m ";
 	cin >> n >> m;
 	Node* head = initLink(n);
-	initgraph(800, 800);//´´½¨»­²¼
-	setorigin(400, 400);//¶¨Òå»­²¼ÖĞĞÄÎª×ø±êÔ­µã
+	initgraph(800, 800);//åˆ›å»ºç”»å¸ƒ
+	setorigin(400, 400);//å®šä¹‰ç”»å¸ƒä¸­å¿ƒä¸ºåæ ‡åŸç‚¹
 	init_circle(head, n);
 	init_num(n);
 	FindAndDelete(head, n, m);
 	_getch();
-	closegraph();          // ¹Ø±Õ»æÍ¼´°¿Ú
+	closegraph();          // å…³é—­ç»˜å›¾çª—å£
 	return 0;
 }
